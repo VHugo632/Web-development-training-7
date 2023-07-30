@@ -230,6 +230,15 @@ br {
     outline-color: hsl(145.54deg 59.68% 48.63%);
 }
 
+@keyframes rotation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 @media screen and (width <= 1300px) {
     main {
         flex-direction: column-reverse;
@@ -238,11 +247,11 @@ br {
         width: 100%;
     }
     #content {
-        height: 60%;
+        height: 65%;
         align-items: center;
     }
     #photo {
-        height: 40%;
+        height: 35%;
         background-image: url("images/hero-mobile.jpg");
         background-position: initial;
     }
@@ -270,16 +279,6 @@ br {
         align-items: baseline;
     }
 }
-
-@keyframes rotation {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
 @media screen and (630px < width <= 1300px) {
     #submit {
         left: calc(100% - 70px);
@@ -330,22 +329,18 @@ br {
         line-height: 55px;
     }
     #text {
-        font-size: 13px;
-        line-height: 26px;
+        font-size: 15px;
+        line-height: 25px;
     }
     #error_text {
         top: 10px;
         font-size: 15px;
     }
 }
-@media screen and (width <= 380px) {
+@media screen and (width <= 400px) {
     #title {
         font-size: 35px;
         line-height: 45px;
-    }
-    #text {
-        font-size: 12px;
-        line-height: 24px;
     }
     #form {
         align-items: center;
@@ -354,10 +349,16 @@ br {
         left: 0;
     }
 }
-@media screen and (height <= 850px) {
-    #header {
-        top: 80px;
-        padding: 140px 0;
+@media screen and (374px < width <= 400px) {
+    #text {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+@media screen and (width <= 374px) {
+    #text {
+        font-size: 13px;
+        line-height: 24px;
     }
 }
 @media screen and (width <= 1024px) {
