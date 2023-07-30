@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #fff7f8;
+    cursor: none;
+    overflow: hidden;
+}
+main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+br {
+    user-select: none;
+}
+#cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    background: hsl(0, 36%, 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: opacity(80%);
+    z-index: 2;
+}
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff7f8;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+}
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 5px solid hsl(0deg 75.47% 79.22%);
+    border-radius: 50%;
+    animation: rotation 3s linear infinite;
+    transition: filter 0.3s ease-out;
+}
+#vertical_bar, #horizontal_bar {
+    position: absolute;
+    background: hsl(0deg 75.47% 79.22%);
+}
+#vertical_bar {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 100%;
+}
+#horizontal_bar {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 5px;
+}
+#content, #photo {
+    position: relative;
+    height: 100%;
+}
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    background-image: url("images/bg-pattern-desktop.svg");
+    background-size: cover;
+    background-position: center;
+    background-color: #fff7f8;
+}
+#photo {
+    width: 40%;
+    background-image: url("images/hero-desktop.jpg");
+    background-size: cover;
+    background-position: center;
+}
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+#logo {
+    position: relative;
+    left: 18%;
+    top: 60px;
+    width: 200px;
+    user-select: none;
+}
+#title {
+    margin-left: 18%;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 75px;
+    color: hsl(0, 6%, 24%);
+    letter-spacing: 25px;
+    line-height: 85px;
+}
+#title span {
+    position: relative;
+    display: inline-flex;
+    font-weight: 300;
+    color: hsl(0, 36%, 70%);
+}
+#title span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0%);
+    width: 95%;
+    height: 1px;
+    background: hsl(0, 36%, 70%);
+    transition: transform 0.3s ease-out;
+}
+#title span:hover::after {
+    transform: translateX(-50%) scaleX(100%);
+}
+#text {
+    margin-top: 30px;
+    margin-left: 18%;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    color: hsl(0, 36%, 70%);
+    line-height: 35px;
+    white-space: nowrap;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+}
+#email {
+    margin-top: 55px;
+    margin-left: 18%;
+    width: 500px;
+    height: 65px;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    border-radius: 50px;
+    border: 1px solid hsl(0, 36%, 70%);
+    padding-left: 30px;
+    padding-right: 110px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: hsl(0, 6%, 24%);
+    cursor: none;
+}
+#email::placeholder {
+    position: absolute;
+    left: 30px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: hsl(0, 36%, 70%);
+    user-select: none;
+}
+#email:focus {
+    outline-color: hsl(0, 36%, 70%);
+}
+#submit {
+    position: absolute;
+    left: calc(18% + 430px);
+    transform: translateY(54px);
+    width: 115px;
+    height: 66px;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    border: none;
+    border-radius: 50px;
+    box-shadow: 3px 10px 20px hsl(0deg 54.08% 79.74%);
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: white;
+    cursor: none;
+    transition: box-shadow 0.1s ease-out;
+}
+#submit:hover {
+    background: #fdd3d9;
+}
+#submit:focus {
+    outline: 3px solid hsl(0, 36%, 70%);
+}
+#error_icon, #check_icon {
+    visibility: hidden;
+    position: absolute;
+    left: calc(18% + 395px);
+    transform: translateY(75px);
+    width: 25px;
+    user-select: none;
+}
+#label {
+    visibility: hidden;
+    position: relative;
+    left: 20%;
+    top: 15px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+}
+.error_email #error_icon , .error_email #label {
+    visibility: visible;
+}
+.error_email #label {
+    color: hsl(0, 93%, 68%);
+}
+.error_email #email {
+    border: 2px solid hsl(0, 93%, 68%);
+    outline-color: hsl(0, 93%, 68%);
+}
+.check_email #check_icon , .check_email #label {
+    visibility: visible;
+}
+.check_email #label {
+    color: hsl(145.54deg 59.68% 48.63%);
+}
+.check_email #email {
+    border: 2px solid hsl(145.54deg 59.68% 48.63%);
+    outline-color: hsl(145.54deg 59.68% 48.63%);
+}
+
+@media screen and (width <= 1300px) {
+    main {
+        flex-direction: column-reverse;
+    }
+    #content, #photo {
+        width: 100%;
+    }
+    #content {
+        height: 60%;
+        align-items: center;
+    }
+    #photo {
+        height: 40%;
+        background-image: url("images/hero-mobile.jpg");
+        background-position: initial;
+    }
+    #header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        top: 50px;
+        padding: 110px 0;
+    }
+    #logo {
+        position: initial;
+        left: initial;
+        top: initial;
+    }
+    #title, #text, #email {
+        margin-left: 0;
+    }
+    #title, #text {
+        text-align: center;
+    }
+    #form {
+        position: relative;
+        padding-bottom: 50px;
+        align-items: baseline;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media screen and (630px < width <= 1300px) {
+    #submit {
+        left: calc(100% - 70px);
+    }
+    #error_icon, #check_icon {
+        left: calc(100% - 105px);
+    }
+}
+@media screen and (500px < width <= 630px) {
+    #title {
+        font-size: 60px;
+        line-height: 70px;
+    }
+    #text {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    #email {
+        transform: scale(80%);
+        padding-right: 140px;
+    }
+    #submit {
+        left: calc(100% - 120px);
+        transform: translateY(54px) scale(80%);
+    }
+    #error_icon, #check_icon {
+        left: calc(100% - 135px);
+        transform: translateY(75px) scale(80%);
+    }
+}
+@media screen and (width <= 500px) {
+    #email {
+        width: 300px;
+        transform: scale(80%);
+    }
+    #submit {
+        left: calc(100% - 120px);
+        transform: translateY(54px) scale(80%);
+    }
+    #error_icon, #check_icon {
+        left: calc(100% - 135px);
+        transform: translateY(75px) scale(80%);
+    }
+}
+@media screen and (380px < width <= 500px) {
+    #title {
+        font-size: 45px;
+        line-height: 55px;
+    }
+    #text {
+        font-size: 13px;
+        line-height: 26px;
+    }
+    #error_text {
+        top: 10px;
+        font-size: 15px;
+    }
+}
+@media screen and (width <= 380px) {
+    #title {
+        font-size: 35px;
+        line-height: 45px;
+    }
+    #text {
+        font-size: 12px;
+        line-height: 24px;
+    }
+    #form {
+        align-items: center;
+    }
+    #error_text {
+        left: 0;
+    }
+}
+@media screen and (height <= 850px) {
+    #header {
+        top: 80px;
+        padding: 140px 0;
+    }
+}
+@media screen and (width <= 1024px) {
+    body {
+        cursor: default;
+    }
+    #content {
+        background-image: none;
+        background-size: initial;
+        background-position: initial;
+    }
+    #cursor {
+        display: none;
+    }
+    #email {
+        cursor: text;
+    }
+    #submit {
+        cursor: pointer;
+    }
+}
