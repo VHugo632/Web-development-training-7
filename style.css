@@ -275,7 +275,10 @@ br {
     #form {
         position: relative;
         padding-bottom: 50px;
-        align-items: baseline;
+        align-items: center;
+    }
+    #label {
+        left: 0;
     }
 }
 @media screen and (630px < width <= 1300px) {
@@ -340,9 +343,6 @@ br {
     #title {
         font-size: 35px;
         line-height: 45px;
-    }
-    #form {
-        align-items: center;
     }
     #error_text {
         left: 0;
