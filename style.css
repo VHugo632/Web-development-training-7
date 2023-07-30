@@ -222,6 +222,7 @@ br {
 }
 .check_email #label {
     color: hsl(145.54deg 59.68% 48.63%);
+    font-size: 15px;
 }
 .check_email #email {
     border: 2px solid hsl(145.54deg 59.68% 48.63%);
