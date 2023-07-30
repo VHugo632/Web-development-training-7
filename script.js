@@ -8,7 +8,15 @@ const email = document.getElementById("email")
 const label = document.getElementById("label")
 
 window.addEventListener("mousemove", function(position) {
-    cursor.style.transform = "translate(calc(-50% + " + position.clientX + "px), calc(-50% + " + position.clientY + "px))"
+    if (screen.width > 1024) {
+        cursor.style.transform = "translate(calc(-50% + " + position.clientX + "px), calc(-50% + " + position.clientY + "px))"
+    }
+})
+
+window.addEventListener("click", function() {
+    if (screen.width <= 1024) {
+        cursor.style.display = "none"
+    }
 })
 
 window.addEventListener("load", function() {
