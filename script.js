@@ -32,7 +32,7 @@ window.addEventListener("load", function() {
                 body.style.overflow = "initial"
             }, 500)
         }, 400)
-    }, 2000)
+    }, 1000)
 })
 
 body.addEventListener("mouseleave", function() {

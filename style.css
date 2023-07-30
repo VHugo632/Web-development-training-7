@@ -251,6 +251,7 @@ br {
         align-items: center;
     }
     #photo {
+        margin-bottom: 75px;
         height: 35%;
         background-image: url("images/hero-mobile.jpg");
         background-position: initial;
