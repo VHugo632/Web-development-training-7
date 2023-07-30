@@ -87,16 +87,14 @@ br {
     background-position: center;
 }
 #header {
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: flex;
     width: 100%;
     height: auto;
 }
 #logo {
     position: relative;
     left: 18%;
-    top: 60px;
+    bottom: 65px;
     width: 200px;
     user-select: none;
 }
@@ -251,7 +249,7 @@ br {
         align-items: center;
     }
     #photo {
-        margin-bottom: 75px;
+        margin-bottom: 60px;
         height: 35%;
         background-image: url("images/hero-mobile.jpg");
         background-position: initial;
