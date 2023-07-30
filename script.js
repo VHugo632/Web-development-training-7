@@ -17,6 +17,9 @@ window.addEventListener("click", function() {
     if (screen.width <= 1024) {
         cursor.style.display = "none"
     }
+    else {
+        cursor.style.display = "block"
+    }
 })
 
 window.addEventListener("load", function() {
