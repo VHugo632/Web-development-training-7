@@ -154,6 +154,7 @@ br {
     font-size: 18px;
     font-weight: 600;
     color: hsl(0, 6%, 24%);
+    line-height: 0;
     cursor: none;
 }
 #email::placeholder {
@@ -173,7 +174,7 @@ br {
     left: calc(18% + 430px);
     transform: translateY(54px);
     width: 115px;
-    height: 66px;
+    height: 65px;
     background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
     border: none;
     border-radius: 50px;
@@ -237,6 +238,11 @@ br {
     }
 }
 
+@media screen and (width > 1300px) and (height <= 740px) {
+    #logo {
+        bottom: 30px;
+    }
+}
 @media screen and (width <= 1300px) {
     main {
         flex-direction: column-reverse;
@@ -289,6 +295,23 @@ br {
         left: calc(100% - 105px);
     }
 }
+@media screen and (width <= 630px) {
+    #header {
+        padding: 0;
+        padding-bottom: 110px;
+    }
+    #email {
+        margin-top: 20px;
+    }
+    #submit {
+        left: calc(100% - 120px);
+        transform: translateY(20px) scale(80%);
+    }
+    #error_icon, #check_icon {
+        left: calc(100% - 135px);
+        transform: translateY(39px) scale(80%);
+    }
+}
 @media screen and (500px < width <= 630px) {
     #title {
         font-size: 60px;
@@ -300,29 +323,29 @@ br {
     }
     #email {
         transform: scale(80%);
-        padding-right: 140px;
-    }
-    #submit {
-        left: calc(100% - 120px);
-        transform: translateY(54px) scale(80%);
-    }
-    #error_icon, #check_icon {
-        left: calc(100% - 135px);
-        transform: translateY(75px) scale(80%);
     }
 }
 @media screen and (width <= 500px) {
     #email {
         width: 300px;
+        padding-right: 140px;
         transform: scale(80%);
     }
-    #submit {
-        left: calc(100% - 120px);
-        transform: translateY(54px) scale(80%);
+}
+@media screen and (425px < width <= 1024px) and (height < 730px) {
+    #header {
+        top: 75px;
     }
-    #error_icon, #check_icon {
-        left: calc(100% - 135px);
-        transform: translateY(75px) scale(80%);
+}
+@media screen and (width <= 425px) and (height <= 645px) {
+    #header {
+        top: 75px;
+    }
+}
+@media screen and (width <= 425px) and (height > 785px) {
+    #header {
+        top: 0;
+        padding-bottom: 70px;
     }
 }
 @media screen and (380px < width <= 500px) {

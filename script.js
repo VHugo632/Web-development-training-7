@@ -30,6 +30,9 @@ window.addEventListener("load", function() {
             setTimeout(function() {
                 loading.style.display = "none"
                 body.style.overflow = "initial"
+                setTimeout(function() {
+                    loading.remove()
+                }, 100)
             }, 500)
         }, 400)
     }, 1000)
